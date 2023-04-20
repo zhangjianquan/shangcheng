@@ -75,11 +75,33 @@ WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'192.168.0.102',
+        'PORT':'3306',
+        'USER':'root',
+        'PASSWORD':'123456',
+        'NAME': 'meiduo',
     }
 }
 
+CACHES = {
+    'default': { #预留
+        'BACKEND':'django_redis.cache.RedisCache',
+        'LOCATION':'redis://192.168.0.101:6379/0',
+        'OPTIONS': {
+    'CLIENT_CLASS':'django_redis.client.DefaultClient',
+        }
+    },
+        'session': { #用于保存session数据
+        'BACKEND':'django_redis.cache.RedisCache',
+        'LOCATION':'redis://192.168.0.101:6379/1',
+        'OPTIONS': {
+    'CLIENT_CLASS':'django_redis.client.DefaultClient',
+        }
+    }
+}
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'session'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
