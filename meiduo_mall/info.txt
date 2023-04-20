@@ -22,6 +22,8 @@ python ../manage.py startapp users
     短信验证码 ajax请求
     注册功能
 
-create table user(
-    
-)
+Http
+    GET 
+    POST 
+    PUT 
+    DELETE 
