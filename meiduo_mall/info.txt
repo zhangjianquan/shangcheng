@@ -5,3 +5,23 @@ apps 存放Django的应用
 https://gitee.com/itcastitheima/shunyi_git_42
 
 python3 -m http.server 8080
+
+在这个目录下创建子应用users
+cd /Users/zhangjianquan/python/shangcheng/meiduo_mall/apps
+python ../manage.py startapp users
+
+创建完子应用以后，注册子应用
+
+需求分析：
+    根据页面功能(从上到下，从左到右)，哪些功能需要和后端配合完成
+
+用户注册：
+    用户名发送 ajax请求
+    手机号发送 ajax请求
+    后端实现图片验证码
+    短信验证码 ajax请求
+    注册功能
+
+create table user(
+    
+)
